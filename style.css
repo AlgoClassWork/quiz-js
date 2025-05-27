@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px black;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
