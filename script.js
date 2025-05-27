@@ -18,5 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     ]
 
+    let currentQuestionIndex = 0
+    let score = 0
 
+    const questionTitle = document.getElementById('question-title')
+    const optionsContainer = document.getElementById('options-container')
+    const nextButton = document.getElementById('next-button')
+    const resultContainer = document.getElementById('result-container')
+    const scoreText = document.getElementById('score-text')
+    const restartButton = document.getElementById('restart-button')
+
+    function loadQuestion() {
+        optionsContainer.innerHTML = ''
+        nextButton.style.display = 'none'
+
+        const currentQuestion = quizData[currentQuestionIndex]
+        questionTitle.textContent = currentQuestion.question
+    }
+
+    loadQuestion()
 })
