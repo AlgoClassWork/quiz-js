@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentQuestion = quizData[currentQuestionIndex]
         questionTitle.textContent = currentQuestion.question
+
+        currentQuestion.options.forEach (optionText => {
+            const button = document.createElement('button')
+            button.textContent = optionText
+            button.classList.add('option-button')
+            optionsContainer.appendChild(button)
+        })
     }
 
     loadQuestion()
