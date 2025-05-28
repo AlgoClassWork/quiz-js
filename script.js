@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentQuestion = quizData[currentQuestionIndex]
         questionTitle.textContent = currentQuestion.question
 
+        questionTitle.style.display = 'block'
+        optionsContainer.style.display = 'flex'
+
         currentQuestion.options.forEach (optionText => {
             const button = document.createElement('button')
             button.textContent = optionText
@@ -66,6 +69,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         nextButton.style.display = 'inline-block'
     }
+
+    nextButton.addEventListener('click', () => {
+        currentQuestionIndex += 1
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion()
+        } else {
+            showResults()
+        }
+    })
+
+    function showResults() {
+        questionTitle.style.display = 'none'
+        optionsContainer.style.display = 'none'
+        nextButton.style.display = 'none'
+
+        resultContainer.style.display = 'block'
+        scoreText.textContent = `Вы ответили на ${score} из ${quizData.length} вопросов`
+    }
+
+    function restartQuiz() {
+        currentQuestionIndex = 0
+        score = 0
+        resultContainer.style.display = 'none'
+        loadQuestion()
+    }
+
+    restartButton.addEventListener('click', restartQuiz)
 
     loadQuestion()
 })
