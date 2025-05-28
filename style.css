@@ -17,3 +17,38 @@ body {
     max-width: 800px;
     text-align: center;
 }
+
+.options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.option-button {
+    background-color: lightskyblue;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+}
+
+.option-button:hover {
+    background-color: lightseagreen;
+}
+
+.option-button.correct {
+    background-color: rgb(50, 200, 50);
+}
+
+.option-button.incorrect {
+    background-color: rgb(200, 50, 50);
+}
+
+.option-button.disabled {
+    pointer-events: none;
+    opacity: 0.8;
+}
