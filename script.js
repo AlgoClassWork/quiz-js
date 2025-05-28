@@ -39,8 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = document.createElement('button')
             button.textContent = optionText
             button.classList.add('option-button')
+
+            button.addEventListener('click', () => {
+                selectAnswer(button, optionText, currentQuestion.correctAnswer)
+            })
+
             optionsContainer.appendChild(button)
+        })    
+    }
+
+    function selectAnswer(selectedButton, selectedOption, correctAnswer) {
+        const allOptionButtons = optionsContainer.querySelectorAll('.option-button')
+        allOptionButtons.forEach(btn => {
+            btn.classList.add('disabled')
         })
+        if (selectedOption === correctAnswer) {
+            selectedButton.classList.add('correct')
+            score += 1
+        } else {
+            selectedButton.classList.add('incorrect')
+            allOptionButtons.forEach(btn => {
+                if (btn.textContent === correctAnswer) {
+                    btn.classList.add('correct')
+                }
+            })
+        }
+        nextButton.style.display = 'inline-block'
     }
 
     loadQuestion()
